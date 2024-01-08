@@ -5,11 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="script.js" defer></script> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
 </head>
 
-<body style="background-color: black;">
+<body>
 
-    <script src="script.js"></script>
+    <header>
+        <div class="title">
+            <h1>Rock Paper Scissors</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chooseText">
+            <p>Choose one</p>
+        </div>
+
+        <div class="rulesText">
+            <p>First to score 5 points wins</p>
+        </div>
+
+        <div class="options">
+            <div>
+                <button class="rock"><img src="./images/1.png" alt="rock"></button>
+            </div>
+            <div>
+                <button class="paper"><img src="./images/2.png" alt="paper"></button>
+            </div>
+            <div>
+                <button class="scissors"><img src="./images/3.png" alt="scissors"></button>
+            </div>
+        </div>
+
+        <div class="score">
+            <p class="scoreText">Score</p>
+
+            <div class="results">
+                <div class="player">
+                    <p>Player</p>
+                </div>
+                <p>Player: 0 points<br>Computer: 0 points<p>
+                        <div class="computer">
+                            <p>Computer</p>
+                        </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>
+            Copyright &copy; 2024 Raphael Vilete
+        </p>
+    </footer>
 
 </body>
 
