@@ -45,6 +45,7 @@ button {
     padding: 0;
     margin: 0;
 }
+
 .options {
     display: flex;
     flex-direction: row;
@@ -95,6 +96,7 @@ button {
     height: 150px;
     margin: 30px;
     max-width: 100%;
+    overflow: hidden;
 }
 
 .results p {
@@ -118,6 +120,55 @@ button {
     width: 100%;
     font-size: 15px;
     font-family: 'Roboto', sans-serif;
+}
+
+.modal {
+    background-color: black;
+    color: rgb(255, 221, 0);
+    position: fixed;
+    border: none;
+    border-radius: 20px;
+    width: 300px;
+    padding: 30px;
+    font-size: 30px;
+    text-align: center;
+    animation-name: slideLeft;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+}
+
+.modal.off {
+    animation-name: slideRight;
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(300%);
+    }
+}
+
+@keyframes slideRight {
+    to {
+        transform: translateX(300%);
+    }
+}
+
+.modal button {
+    background-color: rgb(255, 221, 0);
+    color: black;
+    font-size: 30px;
+    font-family: 'Bangers', system-ui;
+    padding: 20px;
+    border-radius: 20px;
+    width: 220px;
+}
+
+.modal button:hover {
+    cursor: pointer;
+    filter: brightness(1.5);
 }
 
 @media screen and (max-width: 620px) {
@@ -259,7 +310,7 @@ button {
 }
 
 @media screen and (max-width: 340px) {
-    
+
     .title {
         font-size: 16px;
         height: 60px;

@@ -1,3 +1,39 @@
+const rockBtn = document.querySelector('.rock');
+const paperBtn = document.querySelector('.paper');
+const scissorsBtn = document.querySelector('.scissors');
+
+const playerSquare = document.querySelector('.results .player');
+const computerSquare = document.querySelector('.results .computer');
+const playerSquareOriginalState = playerSquare.innerHTML;
+const computerSquareOriginalState = computerSquare.innerHTML;
+
+const roundResultText = document.querySelector('.chooseText');
+const roundChoices = document.querySelector('.rulesText');
+const roundResultTextOriginalState = roundResultText.innerHTML;
+const roundChoicesOriginalState = roundChoices.innerHTML;
+
+const scoreText = document.querySelector('.points');
+const scoreTextOriginalState = scoreText.innerHTML;
+
+rockBtn.addEventListener('click', function () {
+    getRoundResult("rock", getComputerChoice());
+});
+
+paperBtn.addEventListener('click', function () {
+    getRoundResult("paper", getComputerChoice());
+});
+
+scissorsBtn.addEventListener('click', function () {
+    getRoundResult("scissors", getComputerChoice());
+});
+
+const modal = document.querySelector('.modal');
+const modalTitle = document.querySelector('.modal-title');
+const newGame = document.querySelector('.modal button');
+
+const playerText = document.querySelector('.player');
+const computerText = document.querySelector('.computer');
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -12,85 +48,88 @@ function getComputerChoice() {
             return "paper";
         case 3:
             return "scissors";
-        default:
-            return "Invalid choice";
+    }
+}
+
+function updateResults(playerSelection, computerSelection, roundWinner) {
+
+    playerSquare.innerHTML = `<img src="./images/${playerSelection}.png" alt="${playerSelection}" style="width: 100%; height: 100%;">`;
+    computerSquare.innerHTML = `<img src="./images/${computerSelection}.png" alt="${computerSelection}" style="width: 100%; height: 100%;">`;
+    scoreText.innerHTML = `<p class="points">Player: ${playerScore} points<br>Computer: ${computerScore} points</p>`
+
+    if (roundWinner === "playerWin") {
+        roundResultText.innerHTML = '<p style="margin-top: 40px;">You Won!<br></p>';
+        roundChoices.innerHTML = `<p style="margin-top: 30px;">${playerSelection} beats ${computerSelection}</p>`;
+
+    } else if (roundWinner === "computerWin") {
+        roundResultText.innerHTML = '<p style="margin-top: 40px;">You Lost!<br></p>';
+        roundChoices.innerHTML = `<p style="margin-top: 30px;">${computerSelection} beats ${playerSelection}</p>`;
+
+    } else if (roundWinner === "tie") {
+        roundResultText.innerHTML = '<p style="margin-top: 40px;">It\'s a tie!<br></p>';
+        roundChoices.innerHTML = `<p style="margin-top: 30px;">${playerSelection} ties with ${computerSelection}</p>`;
     }
 }
 
 function getRoundResult(playerSelection, computerSelection) {
 
-    if (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" &&
-        playerSelection.toLowerCase() !== "scissors") {
+    if (playerScore < 5 && computerScore < 5) {
 
-        alert("Invalid input! Try again");
-        return "Invalid Input";
 
-    } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors" ||
-        playerSelection.toLowerCase() === "paper" && computerSelection === "rock" ||
-        playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
+        if (
+            (playerSelection === "rock" && computerSelection === "scissors") ||
+            (playerSelection === "paper" && computerSelection === "rock") ||
+            (playerSelection === "scissors" && computerSelection === "paper")
+        ) {
+            playerScore++;
+            updateResults(playerSelection, computerSelection, "playerWin");
 
-        alert(`You Won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.toLowerCase().slice(1)} 
-        beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`);
+        } else if (playerSelection === computerSelection) {
+            updateResults(playerSelection, computerSelection, "tie");
 
-        playerScore++;
-        return;
+        } else {
+            computerScore++;
+            updateResults(playerSelection, computerSelection, "computerWin");
+        }
+    }
 
-    } else if (playerSelection.toLowerCase() === computerSelection) {
-        alert(`Draw! ${playerSelection.charAt(0).toUpperCase() + playerSelection.toLowerCase().slice(1)}
-        ties with ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`);
-        return;
+    if (playerScore > 4 || computerScore > 4) {
 
-    } else {
-        alert(`You Lost! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} 
-        beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.toLowerCase().slice(1)}`);
+        modal.showModal();
 
-        computerScore++;
-        return;
+        if (playerScore > computerScore) {
+            modalTitle.textContent = 'You Won!';
+        } else {
+            modalTitle.textContent = 'You Lost...';
+        }
+
+        reset();
+
     }
 }
 
-function getFinalScore() {
-    alert(`Your Score: ${playerScore} points\nComputer Score: ${computerScore} points`);
-}
 
-function game() {
+function reset() {
+    newGame.onclick = function () {
 
-    alert("This is a Rock Paper Scissors Game\nBest Of Five Rounds Win!\n\nEnter 0 to finish the game");
-
-    while (true) {
-
-        for (let i = 0; i < 5; i++) {
-
-            let playerInput = prompt("Enter your choice: ");
-
-            if (playerInput === "0") {
-                break;
-
-            } else {
-                let gameResults = getRoundResult(playerInput, getComputerChoice());
-
-                if (gameResults === "Invalid Input") {
-                    if (i > 0) {
-                        i--;
-                    }
-                    continue;
-                }
-            }
-        }
-
-        alert("Game Over");
-
-        getFinalScore();
-
-        let newGame = window.confirm("One more game?");
-        if (!newGame) {
-            break;
-        }
+        roundResultText.innerHTML = roundResultTextOriginalState;
+        roundChoices.innerHTML = roundChoicesOriginalState;
 
         playerScore = 0;
         computerScore = 0;
+
+        scoreText.innerHTML = scoreTextOriginalState;
+
+        playerSquare.innerHTML = playerSquareOriginalState;
+        computerSquare.innerHTML = computerSquareOriginalState;
+
+        modal.classList.add('off');
+
+        modal.addEventListener('animationend', function () {
+            modal.classList.remove('off');
+            modal.close();
+        }, {
+            once: true
+        });
     }
 }
-
-// Game start-point
-game();

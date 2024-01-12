@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/rpsIcon.png" type="image/x-icon">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="script.js" defer></script> -->
+    <script src="script.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,39 +24,44 @@
     </header>
 
     <main class="container">
+
         <div class="chooseText">
             <p>Choose one</p>
         </div>
-
         <div class="rulesText">
             <p>First to score 5 points wins</p>
         </div>
 
         <div class="options">
             <div>
-                <button class="rock"><img src="./images/1.png" alt="rock"></button>
+                <button class="rock"><img src="./images/rock.png" alt="rock"></button>
             </div>
             <div>
-                <button class="paper"><img src="./images/2.png" alt="paper"></button>
+                <button class="paper"><img src="./images/paper.png" alt="paper"></button>
             </div>
             <div>
-                <button class="scissors"><img src="./images/3.png" alt="scissors"></button>
+                <button class="scissors"><img src="./images/scissors.png" alt="scissors"></button>
             </div>
         </div>
 
         <div class="score">
             <p class="scoreText">Score</p>
-
             <div class="results">
                 <div class="player">
                     <p>Player</p>
                 </div>
-                <p>Player: 0 points<br>Computer: 0 points<p>
-                        <div class="computer">
-                            <p>Computer</p>
-                        </div>
+                <p class="points">Player: 0 points<br>Computer: 0 points</p>
+                <div class="computer">
+                    <p>Computer</p>
+                </div>
             </div>
         </div>
+
+        <dialog class="modal">
+            <h2 class="modal-title"></h2>
+            <button>New Game</button>
+        </dialog>
+
     </main>
 
     <footer class="footer">
