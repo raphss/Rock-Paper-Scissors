@@ -2,8 +2,8 @@
 
 > Play against your computer.
 
-[![Live website][npm-image][url]]
-[![Exercise from ODP][travis-image][odp-url]]
+[![Live website][npm-image]]
+[![Exercise from ODP][travis-image]]
 
 <p align="center">
     <img src="game.png" alt="Rock-Paper-Scissors Game" width="600">
