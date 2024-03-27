@@ -1,10 +1,14 @@
 # Rock-Paper-Scissors
 > Play against your computer.
 
-Live site: [https://raphss.github.io/Rock-Paper-Scissors/](https://raphss.github.io/Rock-Paper-Scissors/)
+[![Live website][url]]
+[![Exercise from ODP][odp-url]]
 
 <p align="center">
     <img src="game.png" alt="Rock-Paper-Scissors Game" width="600">
 </p>
 
-Practice exercises from: [https://www.theodinproject.com](https://www.theodinproject.com)
+
+<!-- Markdown link & img dfn's -->
+[url]: https://raphss.github.io/Rock-Paper-Scissors
+[odp-url]: https://www.theodinproject.com
