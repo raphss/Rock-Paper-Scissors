@@ -13,4 +13,4 @@
 [url]: https://raphss.github.io/Rock-Paper-Scissors
 [odp-url]: https://www.theodinproject.com
 [url-image]: https://img.shields.io/badge/Live_Website-gold
-[odp-url-image]: https://img.shields.io/badge/Odin_Project-darkblue
+[odp-url-image]: https://img.shields.io/badge/Exercise_from_The_Odin_Project-darkblue
