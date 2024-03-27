@@ -12,5 +12,5 @@
 <!-- Markdown link & img dfn's -->
 [url]: https://raphss.github.io/Rock-Paper-Scissors
 [odp-url]: https://www.theodinproject.com
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?
+[npm-image]: https://img.shields.io/badge/Website-Live-green
+[travis-image]: https://img.shields.io/badge/Exercise-ODP-blue
