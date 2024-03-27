@@ -12,5 +12,5 @@
 <!-- Markdown link & img dfn's -->
 [url]: https://raphss.github.io/Rock-Paper-Scissors
 [odp-url]: https://www.theodinproject.com
-[url-image]: https://img.shields.io/badge/Website-Live-gold
-[odp-url-image]: https://img.shields.io/badge/Exercise-ODP-darkblue
+[url-image]: https://img.shields.io/badge/Live_Website-gold
+[odp-url-image]: https://img.shields.io/badge/Odin_Project-darkblue
