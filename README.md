@@ -5,6 +5,6 @@ A website to play Rock Paper Scissors. Live site: [https://raphss.github.io/Rock
 
 Practice exercises from: [https://www.theodinproject.com](https://www.theodinproject.com)
 
-<div style="display:flex;justify-content: center;">
+<div style="display:flex;justify-content: center; align-items: center;">
     <img src="game.png" alt="Rock-Paper-Scissors Game">
 </div>
