@@ -2,9 +2,8 @@
 
 > Play against your computer.
 
-[![Live website](https://img.shields.io/badge/Website-Live-green)](https://raphss.github.io/Rock-Paper-Scissors/)
-[![Exercise from ODP](https://img.shields.io/badge/Exercise-ODP-blue)](https://www.theodinproject.com)
-
+[![Live website][url-image]][url]
+[![Exercise from ODP][odp-url-image]][odp-url]
 
 <p align="center">
     <img src="game.png" alt="Rock-Paper-Scissors Game" width="600">
@@ -13,5 +12,5 @@
 <!-- Markdown link & img dfn's -->
 [url]: https://raphss.github.io/Rock-Paper-Scissors
 [odp-url]: https://www.theodinproject.com
-[npm-image]: https://img.shields.io/badge/Website-Live-green
-[travis-image]: https://img.shields.io/badge/Exercise-ODP-blue
+[url-image]: https://img.shields.io/badge/Website-Live-green
+[odp-url-image]: https://img.shields.io/badge/Exercise-ODP-blue
